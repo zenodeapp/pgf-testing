@@ -71,17 +71,17 @@ Difference: +952.812992 nam
 
 ### [monitor.sh](monitor.sh)
 
-> [!TIP]
->
-> This will create and append to a log file located in: `logs/monitor_{owner}.log`.
-
 This will monitor the given owner address' balance and shows whenever an epoch change occurs.
 
 #### Command
 ```sh
 bash monitor.sh <owner>
 ```
-> <owner> can either be an _alias_ or _address_.
+> \<owner\> can either be an _alias_ or _address_.
+
+> [!NOTE]
+>
+> This script creates a log file located in `logs/monitor_{owner}.log`.
 
 #### Output
 ```log
