@@ -2,8 +2,8 @@
 
 # Owner argument is required
 if [ $# -eq 0 ]; then
-    echo "Usage: $0 <owner>"
-    exit 1
+  echo "Usage: $0 <owner>"
+  exit 1
 fi
 owner="$1"
 current_datetime=$(date +"%Y-%m-%d %H:%M:%S")
@@ -21,7 +21,7 @@ NC='\033[0m'
 # Logs get stored in the logs folder
 logs_dir="./logs"
 if [ ! -d "$logs_dir" ]; then
-    mkdir -p "$logs_dir"
+  mkdir -p "$logs_dir"
 fi
 log_file="$logs_dir/monitor_${owner}.log"
 
