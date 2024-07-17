@@ -61,6 +61,10 @@ bash total-supply.sh [epoch]
 
 ### [monitor.sh](monitor.sh)
 
+> [!TIP]
+>
+> This will create and append to a log file located in: `logs/monitor_{owner}.log`.
+
 This will monitor the given owner address' balance and shows whenever an epoch change occurs.
 
 #### Command
