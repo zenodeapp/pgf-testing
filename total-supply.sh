@@ -25,10 +25,9 @@ if [ -n "$2" ]; then
   echo_supply "$2"
   total_supply_2="$total_supply"
 
-  # Calculate the difference
+  # Calculate and echo the difference between the two supplies
   difference=$(echo "$total_supply_2 - $total_supply_1" | bc)
 
-  # Determine the color based on the difference
   if (( $(echo "$difference < 0" | bc -l) )); then
     color='\033[0;31m'
     change_sign=""
@@ -37,6 +36,5 @@ if [ -n "$2" ]; then
     change_sign="+"
   fi
 
-  # Print the difference with color
   echo -e "Difference: ${color}$change_sign$difference nam\033[0m"
 fi
