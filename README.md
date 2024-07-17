@@ -46,17 +46,27 @@ bash log-epoch.sh [epoch]
 
 ### [total-supply.sh](total-supply.sh)
 
-Logs the current total supply or the total supply for a given epoch.
+Logs the current total supply, the total supply for a given epoch or compares two total supplies from two different epochs.
 
 #### Command
 ```sh
-bash total-supply.sh [epoch]
+bash total-supply.sh [epoch] [epoch2]
 ```
 > [epoch] is _optional_ [default: the current epoch].
+> 
+> [epoch2] is _optional_. If you decide to add a second epoch, the difference in supply will be calculated.
 
 #### Output
 ```log
-1001576059.162229 (epoch 1664)
+Epoch 1664: 1001576059.162229 (epoch 1664)
+```
+
+-OR-
+
+```log
+Epoch 1686: 1001597020.818731 nam
+Epoch 1687: 1001597973.631723 nam
+Difference: +952.812992 nam
 ```
 
 ### [monitor.sh](monitor.sh)
