@@ -3,6 +3,12 @@ PGF steward/funding script(s) for Namada to help testing its mechanisms and veri
 
 ---
 
+## Requirements
+
+- [namada](https://docs.namada.net/introduction/install)
+- [jq](https://jqlang.github.io/jq/download)
+- [bc](https://www.gnu.org/software/bc/manual/html_mono/bc.html)
+
 ## Getting started
 
 ### [config.json](config.json)
@@ -18,19 +24,49 @@ Make sure to configure this file before calling any of the scripts.
 ```
 > `service`: your service name _[default: "namadad"]_.
 > 
-> `lines`: the amount of lines the script is able to traverse back in your node's log _[default: 20000]_. A higher value will make scripts like [log-epoch.sh](./log-epoch.sh) less performant.
+> `lines`: the amount of lines the script is able to traverse back in your node's log _[default: 20000]_. A higher value will make scripts like [epoch.sh](./epoch.sh) less performant.
 >
 > `monitor_interval`: the amount of seconds to sleep in between every check when one monitors epoch and address balance changes using [monitor.sh](./monitor.sh).
 
 ## Scripts
 
-### [log-epoch.sh](log-epoch.sh)
+### [monitor.sh](monitor.sh)
+
+This will monitor the given owner address' balance and shows whenever an epoch change occurs.
+
+#### Command
+```sh
+bash monitor.sh <owner>
+```
+> \<owner\> can either be an _alias_ or _address_.
+
+> [!NOTE]
+>
+> This script creates a log file located in `logs/monitor_{owner}.log`.
+
+#### Output
+```log
+[2024-07-17 18:48:47] Monitor for anodeofzen started.
+[2024-07-17 18:48:47] Last committed epoch: 1684
+[2024-07-17 18:48:47] nam: 995.5
+[2024-07-17 18:49:32] balance change: +1.504242 nam (epoch 1684)
+[2024-07-17 18:49:32] nam: 997.004242
+[2024-07-17 18:51:06] balance change: -7.004242 nam (epoch 1684)
+[2024-07-17 18:51:06] nam: 990
+[2024-07-17 18:51:47] balance change: -1 nam (epoch 1684)
+[2024-07-17 18:51:47] nam: 989
+[2024-07-17 18:54:02] epoch change: 1685
+[2024-07-17 18:55:46] balance change: +343000000 nam (epoch 1685)
+[2024-07-17 18:55:46] nam: 343000989
+```
+
+### [epoch.sh](epoch.sh)
 
 Logs relevant information for the current or given epoch.
 
 #### Command
 ```sh
-bash log-epoch.sh [epoch]
+bash epoch.sh [epoch]
 ```
 > [epoch] is _optional_ [default: the current epoch].
 
@@ -67,36 +103,6 @@ Epoch 1664: 1001576059.162229
 Epoch 1686: 1001597020.818731 nam
 Epoch 1687: 1001597973.631723 nam
 Difference: +952.812992 nam
-```
-
-### [monitor.sh](monitor.sh)
-
-This will monitor the given owner address' balance and shows whenever an epoch change occurs.
-
-#### Command
-```sh
-bash monitor.sh <owner>
-```
-> \<owner\> can either be an _alias_ or _address_.
-
-> [!NOTE]
->
-> This script creates a log file located in `logs/monitor_{owner}.log`.
-
-#### Output
-```log
-[2024-07-17 18:48:47] Monitor for anodeofzen started.
-[2024-07-17 18:48:47] Last committed epoch: 1684
-[2024-07-17 18:48:47] nam: 995.5
-[2024-07-17 18:49:32] balance change: +1.504242 nam (epoch 1684)
-[2024-07-17 18:49:32] nam: 997.004242
-[2024-07-17 18:51:06] balance change: -7.004242 nam (epoch 1684)
-[2024-07-17 18:51:06] nam: 990
-[2024-07-17 18:51:47] balance change: -1 nam (epoch 1684)
-[2024-07-17 18:51:47] nam: 989
-[2024-07-17 18:54:02] epoch change: 1685
-[2024-07-17 18:55:46] balance change: +343000000 nam (epoch 1685)
-[2024-07-17 18:55:46] nam: 343000989
 ```
 
 </br>
