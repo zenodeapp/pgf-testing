@@ -58,7 +58,7 @@ bash total-supply.sh [epoch] [epoch2]
 
 #### Output
 ```log
-Epoch 1664: 1001576059.162229 (epoch 1664)
+Epoch 1664: 1001576059.162229
 ```
 
 -OR-
