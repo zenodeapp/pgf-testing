@@ -1,5 +1,14 @@
 #!/bin/bash
 
-SERVICE=$(jq -r '.service' ./config.json)
+# Config variable(s)
+service=$(jq -r '.service' ./config.json)
 
-journalctl -u $SERVICE --no-pager -n 1000 | grep "Total native supply" | tail -n 1 | awk -F'Total native supply: ' '{print $2}' | awk '{gsub(/\.$/, "", $1); print $1}'
+# Helper call(s)
+epoch=$(source ./helpers/get-epoch.sh "$1")
+
+# Get relevant epoch log
+log_epoch=$(source ./log-epoch.sh "$epoch")
+
+# Log extraction from "Began a new epoch $epoch" to first occurence of "total supply"
+total_supply=$(echo "$log_epoch" | awk -F 'total supply ' '{print $2}' | awk '{gsub(/\).$/, "", $1); print $1}' | tail -n -1) 
+echo "$total_supply (epoch $epoch)"
