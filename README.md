@@ -12,12 +12,15 @@ Make sure to configure this file before calling any of the scripts.
 ```json
 {
   "service": "namadad",
-  "lines": 20000
+  "lines": 20000,
+  "monitor_interval": 2
 }
 ```
 > `service`: your service name _[default: "namadad"]_.
 > 
-> `lines`: the amount of lines the script is able to traverse back in your node's log _[default: 20000]_. A higher value will make scripts like [log-epoch.sh](./log-epoch.sh) less performant. 
+> `lines`: the amount of lines the script is able to traverse back in your node's log _[default: 20000]_. A higher value will make scripts like [log-epoch.sh](./log-epoch.sh) less performant.
+>
+> `monitor_interval`: the amount of seconds to sleep in between every check when one monitors epoch and address balance changes using [monitor.sh](./monitor.sh).
 
 ## [log-epoch.sh](log-epoch.sh)
 
@@ -52,6 +55,32 @@ bash total-supply.sh [epoch]
 #### Output
 ```log
 1001576059.162229 (epoch 1664)
+```
+
+## [monitor.sh](monitor.sh)
+
+This will monitor the given owner address' balance and shows whenever an epoch change occurs.
+
+### Command
+```sh
+bash monitor.sh <owner>
+```
+> <owner> can either be an _alias_ or _address_.
+
+#### Output
+```log
+[2024-07-17 18:48:47] Monitor for anodeofzen started.
+[2024-07-17 18:48:47] Last committed epoch: 1684
+[2024-07-17 18:48:47] nam: 995.5
+[2024-07-17 18:49:32] balance change: +1.504242 nam (epoch 1684)
+[2024-07-17 18:49:32] nam: 997.004242
+[2024-07-17 18:51:06] balance change: -7.004242 nam (epoch 1684)
+[2024-07-17 18:51:06] nam: 990
+[2024-07-17 18:51:47] balance change: -1 nam (epoch 1684)
+[2024-07-17 18:51:47] nam: 989
+[2024-07-17 18:54:02] epoch change: 1685
+[2024-07-17 18:55:46] balance change: +343000000 nam (epoch 1685)
+[2024-07-17 18:55:46] nam: 343000989
 ```
 
 </br>
