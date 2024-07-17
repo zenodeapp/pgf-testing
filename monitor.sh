@@ -23,7 +23,7 @@ logs_dir="./logs"
 if [ ! -d "$logs_dir" ]; then
     mkdir -p "$logs_dir"
 fi
-log_file="$logs_dir/balance_${owner}.log"
+log_file="$logs_dir/monitor_${owner}.log"
 
 # Monitor start
 echo -e "[$current_datetime] Monitor for ${GREEN}$owner${NC} started."
@@ -54,7 +54,7 @@ while true; do
 
   # Balance monitoring
   current_balance=$(echo "$(namada client balance --owner $owner --token nam)" | awk '/nam:/ {print $2}')
-  
+
   if [ -n "$current_balance" ]; then
     if [ "$current_balance" != "$previous_balance" ]; then
       
