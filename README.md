@@ -1,5 +1,5 @@
 # PGF Testing
-PGF steward/funding script(s) to automate testing its mechanisms and verify correctness.
+PGF steward/funding script(s) to help testing its mechanisms and verify correctness.
 
 ---
 
