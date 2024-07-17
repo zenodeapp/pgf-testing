@@ -26,7 +26,7 @@ Make sure to configure this file before calling any of the scripts.
 > 
 > `lines`: the amount of lines the script is able to traverse back in your node's log _[default: 20000]_. A higher value will make scripts like [epoch.sh](./epoch.sh) less performant.
 >
-> `monitor_interval`: the amount of seconds to sleep in between every check when one monitors epoch and address balance changes using [monitor.sh](./monitor.sh).
+> `monitor_interval`: the amount of seconds to sleep in between every check when monitoring epoch and address balance changes using [monitor.sh](./monitor.sh).
 
 ## Scripts
 
