@@ -1,4 +1,5 @@
 {
   "service": "namadad",
-  "lines": 20000
+  "lines": 20000,
+  "monitor_interval": 2
 }
