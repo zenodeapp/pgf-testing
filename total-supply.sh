@@ -8,7 +8,7 @@ echo_supply() {
   local epoch="$1"
 
   # Get relevant epoch log
-  local log_epoch=$(source ./log-epoch.sh "$epoch")
+  local log_epoch=$(source ./epoch.sh "$epoch")
 
   # Extract and echo the total supply from the epoch log
   total_supply=$(echo "$log_epoch" | awk -F 'total supply ' '{print $2}' | awk '{gsub(/\).$/, "", $1); print $1}' | tail -n -1)
