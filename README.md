@@ -53,3 +53,8 @@ bash total-supply.sh [epoch]
 ```log
 1001576059.162229 (epoch 1664)
 ```
+
+</br>
+
+<p align="right">— ZEN</p>
+<p align="right">Copyright (c) 2024 ZENODE</p>
