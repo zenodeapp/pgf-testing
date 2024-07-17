@@ -22,11 +22,13 @@ Make sure to configure this file before calling any of the scripts.
 >
 > `monitor_interval`: the amount of seconds to sleep in between every check when one monitors epoch and address balance changes using [monitor.sh](./monitor.sh).
 
-## [log-epoch.sh](log-epoch.sh)
+## Scripts
+
+### [log-epoch.sh](log-epoch.sh)
 
 Logs relevant information for the current or given epoch.
 
-### Command
+#### Command
 ```sh
 bash log-epoch.sh [epoch]
 ```
@@ -42,11 +44,11 @@ bash log-epoch.sh [epoch]
 2024-07-17T16:59:53.282897Z  INFO namada_governance::pgf::inflation: Minting 952.793054 tokens for PGF rewards distribution into the PGF account (total supply 1001576059.162229)
 ```
 
-## [total-supply.sh](total-supply.sh)
+### [total-supply.sh](total-supply.sh)
 
 Logs the current total supply or the total supply for a given epoch.
 
-### Command
+#### Command
 ```sh
 bash total-supply.sh [epoch]
 ```
@@ -57,11 +59,11 @@ bash total-supply.sh [epoch]
 1001576059.162229 (epoch 1664)
 ```
 
-## [monitor.sh](monitor.sh)
+### [monitor.sh](monitor.sh)
 
 This will monitor the given owner address' balance and shows whenever an epoch change occurs.
 
-### Command
+#### Command
 ```sh
 bash monitor.sh <owner>
 ```
