@@ -11,7 +11,7 @@ echo_supply() {
   local log_epoch=$(source ./epoch.sh "$epoch")
 
   # Extract and echo the total supply from the epoch log
-  total_supply=$(echo "$log_epoch" | awk -F 'total supply ' '{print $2}' | awk '{gsub(/\).$/, "", $1); print $1}' | tail -n -1)
+  total_supply=$(echo "$log_epoch" | awk -F 'total supply ' '{print $2}' | awk '{gsub(/\)[.]*$/, ""); print $1}' | tail -n 1)
   # Store total_supply in a global variable
   TOTAL_SUPPLY_RESULT="$total_supply"
   echo "Epoch $epoch: $total_supply nam"
